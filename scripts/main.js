@@ -22,7 +22,7 @@ function setUserName() {
     }
 }
 
-if (localStorage.getItem('name')) {
+if (!localStorage.getItem('name')) {
     setUserName();
 } else {
     const storedName = localStorage.getItem('name');
