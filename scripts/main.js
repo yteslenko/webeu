@@ -8,3 +8,27 @@ myImage.onclick = () => {
         myImage.setAttribute('src', 'images/adc1.jpg');
     }
 }
+
+let myButton = document.querySelector('button');
+let myHeading = document.querySelector('h1');
+
+function setUserName() {
+    const myName = prompt('Please enter your name.');
+    if (!myName) {
+        setUserName();
+    } else {
+        localStorage.setItem('name', myName);
+        myHeading.textContent = `That's cool ADC, ${myName}`;
+    }
+}
+
+if (localStorage.getItem('name')) {
+    setUserName();
+} else {
+    const storedName = localStorage.getItem('name');
+    myHeading.textContent = `That's cool ADC, ${storedName}`
+}
+
+myButton.onclick = () => {
+    setUserName();
+}
